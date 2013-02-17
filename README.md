@@ -12,3 +12,7 @@ Using this script in conjunction with exporting the actual summaries to file you
 This script can be added to any script which does a similar job. 
 
 What you would need to do is produce any report that looks like the above report where the numeric value is after the field, the field can't have spaces (you can use tr "_" " " to remove _ from the field if required.. basically 2 field summary from each server - with any type of heading - the script will add the content together - the initial problem was where there was a new user or something under a heading on the file being compared. This is now been fixed by finding the and using ed to add to original file.)
+
+http://stackoverflow.com/questions/14891181/bash-awk-script-to-sum-up-server-reports-that-are-quite-similar-but-may-have-uni
+
+http://stackoverflow.com/questions/14876624/awk-sum-up-multiple-files-show-lines-which-does-not-appear-on-both-sets-of-files
