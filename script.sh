@@ -48,13 +48,22 @@ EOF
             done
 
             # Now process the previous file vs current file and add up any rows that has two columns and 2nd column is a numeric value
-                awk -v i=$i 'NR==FNR { _[$1]=$2 } NR!=FNR { if (_[$1] != "") { if  ($2 ~ /[0-9]/)   { nn=0; nn=($2+_[$1]); print $1" "nn; } else { print $1;} }else { print; } }' $names $oldname> $oldname1
-        oldname=$oldname1
+            awk -v i=$i 'NR==FNR { _[$1]=$2 } NR!=FNR { if (_[$1] != "") { if  ($2 ~ /[0-9]/)   { nn=0; nn=($2+_[$1]); print $1" "nn; } else { print $1;} }else { print; } }' $names $oldname> $oldname1
+            # previous name now gets set to the new outputted oldname1
+            oldname=$oldname1
+    # Finish the counter loop
     fi
+# Done all the servers
 done
 
+# out of the loop now 
 # echo out the final sum
 cat $oldname
 
 # delete all randomly created files
 rm summary?.*
+
+
+# Enjoy This took me a few days to figure out but I will be using it across all our clustered solutions to produce over all summaries.
+# the trick is to ensure the server report has two column per row and the 2nd row is the numeric value - any one columned rows are just outputted - 
+# two columns with secondary not being numeric will result with a sum of 0 as second value 
