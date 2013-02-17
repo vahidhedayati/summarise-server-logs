@@ -28,7 +28,7 @@ for names in $(echo $files); do
 
             # Now compare last file name - new or current file and get any values missing from new file and add it as a 0
             # entry on previous file - this is a hack to ensure the awk statement below picks up all instances
-            for entries in $(awk -v i=$i 'NR==FNR { _[$1]=$2 } NR!=FNR { if (_[$1] == "") { if  ($2 ~ /[0-9]/)   { nn=0; nn=(_[$1]+=$2);  print FNR"-"$1"%0"} else { } } else { } }' $oldname $names); do
+            for entries in $(awk 'NR==FNR { _[$1]=$2 } NR!=FNR { if (_[$1] == "") { if  ($2 ~ /[0-9]/)   { nn=0; nn=(_[$1]+=$2);  print FNR"-"$1"%0" }  } }' $oldname $names); do
                 line=$(echo ${entries%%-*})
                 content=$(echo ${entries#*-})
                 content=$(echo $content|tr "%" " ")
@@ -48,7 +48,7 @@ EOF
             done
 
             # Now process the previous file vs current file and add up any rows that has two columns and 2nd column is a numeric value
-            awk -v i=$i 'NR==FNR { _[$1]=$2 } NR!=FNR { if (_[$1] != "") { if  ($2 ~ /[0-9]/)   { nn=0; nn=($2+_[$1]); print $1" "nn; } else { print $1;} }else { print; } }' $names $oldname> $oldname1
+            awk 'NR==FNR { _[$1]=$2 } NR!=FNR { if (_[$1] != "") { if  ($2 ~ /[0-9]/)   { nn=0; nn=($2+_[$1]); print $1" "nn; } else { print $1;} }else { print; } }' $names $oldname> $oldname1
             # previous name now gets set to the new outputted oldname1
             oldname=$oldname1
     # Finish the counter loop
