@@ -1,0 +1,83 @@
+================================================================================
+APP_STATISTICS: INSTANCE 2 on SERVER1 FOR 14/02/13:
+================================================================================
+
+
+================================================================================
+PROVIDER1_Total_Response: 40187
+PROVIDER2_Total_Response: 3727
+
+
+================================================================================
+PROVIDER1_bookRequest: 8
+PROVIDER2_bookRequest: 19
+================================================================================
+PROVIDER1_cancelRequest: 6
+PROVIDER2_cancelRequest: 5
+
+
+================================================================================
+PROVIDER1_Total_requests:   40187
+PROVIDER1_Requests_under_2_secs:    38534
+PROVIDER1_Requests_2_to_5_secs: 1481
+PROVIDER1_Requests_5_to_10_secs:    151
+PROVIDER1_Requests_above_10_secs:   21
+
+
+
+================================================================================
+PROVIDER2_Total_requests:   3727
+PROVIDER2_Requests_under_2_secs:    3585
+PROVIDER2_Requests_2_to_5_secs: 60
+PROVIDER2_Requests_5_to_10_secs:    62
+PROVIDER2_Requests_above_10_secs:   20
+
+
+
+================================================================================
+Communication_failure: 0
+
+
+================================================================================
+Action_breakdown:
+AvailabilityRequest 8130
+InfoRequest 85
+StatusRequest 30
+bookRequest 27
+cancelRequest 11
+provideRequest 1
+modifyRequest 1
+
+
+================================================================================
+Action_user_breakdown
+bookRequest_u112 14
+bookRequest_u110 7
+cancelRequest_u112 5
+cancelRequest_u10 3
+bookRequest_u11a 2
+cancelRequest_u90a 1
+cancelRequest_u95 1
+cancelRequest_u94a 1
+bookRequest_u97a 1
+bookRequest_u97a 1
+bookRequest_u96x 1
+bookRequest_u99 1
+
+
+================================================================================
+Active_users
+u001 5030
+u022 1396
+u004 487
+u023 425
+u211a 369
+u91a 230
+
+
+================================================================================
+Non_Active_users
+nu034 10
+nu033 20
+nu031 30
+nu021 40
