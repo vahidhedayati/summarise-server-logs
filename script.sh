@@ -56,6 +56,26 @@ EOF
 # Done all the servers
 done
 
+
+   #VH 16/01/14
+
+  echo "-------------------------------------------------------------------------------------------------------------"
+  echo "OVERALL  SUMMARY FOR ALL SERVERS"
+  echo "-------------------------------------------------------------------------------------------------------------"
+  ##cat $oldname
+   newname=$oldname.$RAND
+   cat $oldname|grep -v "Average_response_time_SOMETHING_ms:" >$newname
+   avg=$(cat $oldname |grep "Average_response_time_SOMETHING_ms: "|awk -F": " '{print $2}')
+   avg1=$(echo $avg|awk -v tot=$i '{$3=$1 /tot;print $3}')
+   #content=$content"Avg_Response_in_ms_old: $avg\n"
+   content="Average_response_time_SOMETHING_ms: $avg1\n"
+   content1=$(echo -e $content)
+
+
+   # Added this block which can be used outside of the loop to work out final averages if the reports are to contain averages.
+
+
+
 # out of the loop now 
 # echo out the final sum
 cat $oldname
